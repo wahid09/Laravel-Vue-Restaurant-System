@@ -11,5 +11,7 @@ $factory->define(App\Models\Menu::class, function (Faker $faker) {
         'description' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true),
         'price' => $faker->numberBetween($min = 99, $max = 999),
         'image' => $faker->imageUrl($width = 400, $height = 480),
+				'restaurant_id' => 1,
+				'category_id'   => 1,
     ];
 });

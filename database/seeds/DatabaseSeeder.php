@@ -12,6 +12,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call(UsersTableSeeder::class);
-         factory(\App\Models\Menu::class, 10)->create();
+         $categories = factory(\App\Models\Category::class, 5)->create();
+         $categories->each(function($category){
+              factory(\App\Models\Menu::class, 3)->create([
+                'category_id' => $category->id,
+              ]);
+         });
     }
 }
